@@ -1,8 +1,21 @@
+const config = require('./config/config.js')
 const express = require('express');
 const app = express();
 const bodyparser = require('body-parser');
 const cors = require('cors');
 const knex = require('knex');
+
+ const postgresDB = knex({
+    client: 'pg',
+    connection: {
+      host : '127.0.0.1',
+      user : config.user,
+      password : config.password,
+      database : 'myoutdoortrailstest'
+    }
+  });
+
+ postgresDB.select('*').from('logging').then(data => console.log(data));
 
 const searchfield = require('./controllers/searchfield.js');
 
@@ -17,9 +30,12 @@ app.use(cors());
 app.post('/searchfield', (req,res) => {
     console.log(req.body)
     const data = req.body.searchField
-    res.json(`here is the ${data}`)
+    postgresDB('logging').insert({
+        search: data
+    })
+    .then( () => res.json(`here is the ${data}`))
     console.log(`here is the ${data}`)
     })
 app.get('/', (req,res) => res.send('this is working'))
 
-app.listen(3001, () => console.log('running on port 3001'))
+app.listen( process.env.PORT || 3001, () => console.log(`app is running on port ${process.env.PORT} or 3001`))

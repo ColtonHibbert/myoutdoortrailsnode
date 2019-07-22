@@ -1,4 +1,4 @@
-const config = require('./config/config.js')
+//const config = require('./config/config.js')
 const express = require('express');
 const app = express();
 const bodyparser = require('body-parser');
@@ -9,8 +9,8 @@ const knex = require('knex');
     client: 'pg',
     connection: {
       host : '127.0.0.1',
-      user : config.user,
-      password : config.password,
+      user : process.env.DBUser,
+      password : process.env.DBPassword,
       database : 'myoutdoortrailstest'
     }
   });

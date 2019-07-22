@@ -5,12 +5,15 @@ const bodyparser = require('body-parser');
 const cors = require('cors');
 const knex = require('knex');
 
+// user : process.env.DBUser,
+// password : process.env.DBPassword,
+
  const postgresDB = knex({
     client: 'pg',
     connection: {
       host : '127.0.0.1',
-      user : process.env.DBUser,
-      password : process.env.DBPassword,
+      user : '',
+      password : '',
       database : 'myoutdoortrailstest'
     }
   });

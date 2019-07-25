@@ -11,8 +11,6 @@ const knex = require('knex');
  const postgresDB = knex({
     client: 'pg',
     connection: {
-      connectionString : process.env.DATABASE_URL,
-      ssl: true
     }
   });
 
@@ -45,6 +43,7 @@ app.post('/signup', (req,res) => {
   }).then(() => res.json(`here is the response email ${req.body.email}`))
   console.log(`here is logging for email ${req.body.email}`)
 })
+
 
 app.get('/', (req,res) => res.send('this is working'))
 

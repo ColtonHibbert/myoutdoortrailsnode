@@ -4,6 +4,9 @@ const app = express();
 const bodyparser = require('body-parser');
 const cors = require('cors');
 const knex = require('knex');
+const bcrypt = require('bcrypt-nodejs')
+
+const signup = require('./controllers/signup.js');
 
 // user : process.env.DBUser,
 // password : process.env.DBPassword,
@@ -27,7 +30,7 @@ const database = {
 app.use(bodyparser.json());
 app.use(cors());
 
-
+app.post('/signup', (req,res) => {signup.handleSignup(req, res, postgresDB, bcrypt )} )
 app.post('/searchfield', (req,res) => {
     console.log(req.body)
     const data = req.body.searchField
@@ -38,13 +41,13 @@ app.post('/searchfield', (req,res) => {
     console.log(`here is the ${data}`)
     })
 
-app.post('/signup', (req,res) => {
-  postgresDB('users').insert({
-    email: req.body.email,
-    crypted_password: req.body.crypted_password
-  }).then(() => res.json(`here is the response email ${req.body.email}`))
-  console.log(`here is logging for email ${req.body.email}`)
-})
+// app.post('/signup', (req,res) => {
+//   postgresDB('users').insert({
+//     email: req.body.email,
+//     crypted_password: req.body.crypted_password
+//   }).then(() => res.json(`here is the response email ${req.body.email}`))
+//   console.log(`here is logging for email ${req.body.email}`)
+// })
 
 
 app.get('/', (req,res) => res.send('this is working'))

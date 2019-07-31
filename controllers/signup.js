@@ -11,8 +11,9 @@ const handleSignup = (req, res, postgresDB, bcrypt ) => {
             joined: new Date()
         })
         .into('users')
-        .catch(err => res.status(400).json('unable to signup'))
-    })
+        .then(trx.commit)
+        .catch(trx.rollback)
+    }).catch(err => res.status(400).json('unable to signup'))
 }
 
 module.exports = {

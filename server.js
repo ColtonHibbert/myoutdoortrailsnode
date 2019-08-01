@@ -15,7 +15,7 @@ const login = require('./controllers/login.js');
  const postgresDB = knex({
     client: 'pg',
     connection: {
-      connectionString: process.env.DATABASE_URL + "sslmode=require",
+      connectionString: process.env.DATABASE_URL + "ssl=true",
       ssl: true,
     }
   });

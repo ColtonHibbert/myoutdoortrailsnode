@@ -3,6 +3,9 @@ const handleLogin = ( req, res, postgresDB, bcrypt ) => {
     if(!email  || !crypted_password) {
         return res.json(`unable to login`)
     }
+    console.log(
+        req.body
+    )
     postgresDB.select('email', 'crypted_password').from('users')
     .where('email', '=', email) 
     .then(data => {

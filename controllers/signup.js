@@ -1,5 +1,5 @@
 const handleSignup = (req, res, postgresDB, bcrypt ) => {
-    const { email, crypted_password } = req.body;
+    const { email, crypted_password, name } = req.body;
     if (!email || !crypted_password) {
         return res.status(400).json('incorrect form submission')
     }
@@ -8,7 +8,8 @@ const handleSignup = (req, res, postgresDB, bcrypt ) => {
         trx.insert({
             crypted_password: hash,
             email: email,
-            joined: new Date()
+            joined: new Date(),
+            name: name,
         })
         .into('users')
         .then(trx.commit)

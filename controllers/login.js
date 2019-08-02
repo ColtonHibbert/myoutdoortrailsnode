@@ -7,7 +7,7 @@ const handleLogin = ( req, res, postgresDB, bcrypt ) => {
     postgresDB.select('email', 'crypted_password').from('users')
     .where('email', '=', email) 
     .then(data => {
-        const isValid = bcrypt.compareSync(data[0].crypted_password);
+        const isValid = bcrypt.compareSync(crypted_password, data[0].crypted_password);
         if(isValid) {
             return postgresDB.select('*').from('users')
             .where('email', '=', email)

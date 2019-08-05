@@ -4,7 +4,7 @@ const handleLogin = ( req, res, postgresDB, bcrypt ) => {
     if(!email  || !crypted_password) {
         return res.json(`unable to login`)
     }
-    postgresDB.select('email', 'crypted_password').from('users')
+    postgresDB.select('email', 'crypted_password').from('login')
     .where('email', '=', email) 
     .then(data => {
         const isValid = bcrypt.compareSync(crypted_password, data[0].crypted_password);

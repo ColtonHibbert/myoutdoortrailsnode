@@ -6,12 +6,20 @@ const handleSignup = (req, res, postgresDB, bcrypt ) => {
     const hash = bcrypt.hashSync(crypted_password);
     postgresDB.transaction(trx => {
         trx.insert({
-            crypted_password: hash,
             email: email,
             joined: new Date(),
             name: name,
         })
         .into('users')
+        .then(trx.commit)
+        .catch(trx.rollback)
+    }).catch(err => res.status(400).json('unable to signup'))
+    postgresDB.transaction(trx => {
+        trx.insert({
+            crypted_password: hash,
+            email: email,
+        })
+        .into('login')
         .then(trx.commit)
         .catch(trx.rollback)
     }).catch(err => res.status(400).json('unable to signup'))

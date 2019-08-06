@@ -23,6 +23,12 @@ const handleSignup = (req, res, postgresDB, bcrypt ) => {
         .then(trx.commit)
         .catch(trx.rollback)
     }).catch(err => res.status(400).json('unable to signup'))
+    return postgresDB.select('*').from('users')
+    .where('email', '=', email)
+    .then(user => {
+        res.json(user[0])
+    })
+    .catch(err => res.status(400).json(`unable to get user`))
 }
 
 module.exports = {

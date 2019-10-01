@@ -44,6 +44,12 @@ app.post('/searchfield', (req,res) => {
     console.log(`here is the ${data}`)
     })
 
+
+app.get('/', (req,res) => res.send('this is working'))
+
+app.listen( process.env.PORT || 3001, () => console.log(`app is running on port ${process.env.PORT} or 3001`))
+
+
 // app.post('/signup', (req,res) => {
 //   postgresDB('users').insert({
 //     email: req.body.email,
@@ -51,8 +57,3 @@ app.post('/searchfield', (req,res) => {
 //   }).then(() => res.json(`here is the response email ${req.body.email}`))
 //   console.log(`here is logging for email ${req.body.email}`)
 // })
-
-
-app.get('/', (req,res) => res.send('this is working'))
-
-app.listen( process.env.PORT || 3001, () => console.log(`app is running on port ${process.env.PORT} or 3001`))

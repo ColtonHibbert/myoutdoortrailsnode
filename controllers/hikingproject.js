@@ -8,3 +8,6 @@ const handleHikingProject = (req, res ) => {
     .catch(err => res.status(400).json('hiking project request failed'))
 }
 
+module.exports = {
+    handleHikingProject
+}

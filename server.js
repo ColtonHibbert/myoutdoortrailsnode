@@ -8,6 +8,7 @@ const bcrypt = require('bcrypt-nodejs')
 
 const signup = require('./controllers/signup.js');
 const login = require('./controllers/login.js');
+const hikingproject = require('./controllers/hikingproject.js');
 
 // user : process.env.DBUser,
 // password : process.env.DBPassword,
@@ -44,6 +45,7 @@ app.post('/searchfield', (req,res) => {
     console.log(`here is the ${data}`)
     })
 
+app.post('/hikingproject', (req, res) => { hikingproject.handleHikingProject(req, res ) } )
 
 app.get('/', (req,res) => res.send('this is working'))
 

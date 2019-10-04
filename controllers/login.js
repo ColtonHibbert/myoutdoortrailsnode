@@ -1,6 +1,7 @@
 const handleLogin = ( req, res, postgresDB, bcrypt ) => {
     const { email, crypted_password } = req.body;
-    console.log(req.body)
+    console.log(req.body);
+    
     if(!email  || !crypted_password) {
         return res.json(`unable to login`)
     }

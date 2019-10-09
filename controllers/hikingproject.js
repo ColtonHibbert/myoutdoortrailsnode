@@ -14,8 +14,8 @@ const handleHikingProject = (req, res ) => {
     // }
     )
     .then(data => {
-        console.log("console logging data",data);
-        console.log("console logging datato json", data.json());
+        console.log(data);
+        console.log( data.json());
         return data.json();
     })
     .catch(err => res.status(400).json('hiking project request failed'))

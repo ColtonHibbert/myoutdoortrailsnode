@@ -6,7 +6,7 @@ const handleHikingProject = (req, res ) => {
         return res.json(`unable to get hiking project api data`)
     }
     console.log(lat, lon)
-    fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=50&key=${process.env.HPKEY}`
+    ( () => fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=50&key=${process.env.HPKEY}`
     // , {
     //     method: "POST",
     //     headers: {'Content-type': 'application/json'},
@@ -19,6 +19,7 @@ const handleHikingProject = (req, res ) => {
         return data.json()
     })
     .catch(err => res.status(400).json('hiking project request failed'))
+    )()
 }
 
 module.exports = {

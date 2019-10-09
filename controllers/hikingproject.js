@@ -7,9 +7,9 @@ const handleHikingProject = (req, res ) => {
     }
     fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=50&key=${process.env.HPKEY}`, {
         method: "POST",
-        headers: {'Content-type': 'application/json'}
+        headers: {'Content-type': 'application/json'},
     })
-    .then(res => res.json())
+    .then(res => console.log(res.json())
     .catch(err => res.status(400).json('hiking project request failed'))
 }
 

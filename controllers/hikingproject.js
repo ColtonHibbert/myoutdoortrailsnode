@@ -9,9 +9,7 @@ const handleHikingProject = (req, res ) => {
         method: "POST",
         headers: {'Content-type': 'application/json'},
     })
-    .then(res => {
-        console.log(res.json())
-    })
+    .then(res => res)
     .catch(err => res.status(400).json('hiking project request failed'))
 }
 

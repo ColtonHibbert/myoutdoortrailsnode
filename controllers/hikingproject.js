@@ -6,11 +6,13 @@ const handleHikingProject = (req, res ) => {
         return res.json(`unable to get hiking project api data`)
     }
     console.log(lat, lon)
-    fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=50&key=${process.env.HPKEY}`, {
-        method: "POST",
-        headers: {'Content-type': 'application/json'},
-        mode: "no-cors" 
-    })
+    fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=50&key=${process.env.HPKEY}`
+    // , {
+    //     method: "POST",
+    //     headers: {'Content-type': 'application/json'},
+    //     mode: "no-cors" 
+    // }
+    )
     .then(res => {
         console.log(res.json())
         return res.json()

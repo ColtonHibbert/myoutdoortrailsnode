@@ -5,6 +5,7 @@ const bodyparser = require('body-parser');
 const cors = require('cors');
 const knex = require('knex');
 const bcrypt = require('bcrypt-nodejs')
+const fetch = require("node-fetch");
 
 const signup = require('./controllers/signup.js');
 const login = require('./controllers/login.js');

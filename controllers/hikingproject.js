@@ -1,3 +1,5 @@
+const fetch = require("node-fetch");
+
 const handleHikingProject = (req, res ) => {
     const {lat, lon} = req.body
     if(!lat  || !lon) {

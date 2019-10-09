@@ -13,6 +13,7 @@ const handleHikingProject = (req, res ) => {
     })
     .then(res => {
         console.log(res.json())
+        return res.json()
     })
     .catch(err => res.status(400).json('hiking project request failed'))
 }

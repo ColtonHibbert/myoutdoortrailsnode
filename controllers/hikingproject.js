@@ -19,7 +19,7 @@ const handleHikingProject = (req, res ) => {
         return data.json()
     })
     .catch(err => res.status(400).json('hiking project request failed'))
-    )()
+    )(lat, lon)
 }
 
 module.exports = {

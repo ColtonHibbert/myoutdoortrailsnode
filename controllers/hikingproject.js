@@ -12,7 +12,7 @@ const handleHikingProject = (req, res ) => {
     //     headers: {'Content-type': 'application/json'},
     //     mode: "no-cors" 
     // }
-    ).then(data => res.json(data))
+    ).then(data => console.log(data))
     .catch(err => res.status(400).json('hiking project request failed'))
 }
 

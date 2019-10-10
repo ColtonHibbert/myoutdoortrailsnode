@@ -7,13 +7,8 @@ const handleHikingProject = (req, res ) => {
     }
     console.log(lat, lon)
     async function hikes() {
-        const getHikes = await fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=50&key=${process.env.HPKEY}`,
-            {
-                method: "POST",
-                headers: {'Content-type': 'application/json'},
-                mode: "no-cors" 
-            }
-        );
+        const getHikes = await fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=50&key=${process.env.HPKEY}`)
+        .catch("fetch didn't work");
         console.log(getHikes.json())
         return getHikes;
     }

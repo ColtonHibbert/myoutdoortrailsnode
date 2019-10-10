@@ -50,7 +50,7 @@ app.post('/searchfield', (req,res) => {
     console.log(`here is the ${data}`)
     })
 
-app.post('/hikingproject', cors(corsOptions), (req, res) => { hikingproject.handleHikingProject(req, res ) } )
+app.post('/hikingproject', (req, res) => { hikingproject.handleHikingProject(req, res ) } )
 
 app.get('/', (req,res) => res.send('this is working'))
 

@@ -8,10 +8,11 @@ const handleHikingProject = (req, res ) => {
     console.log(lat, lon)
     async function hikes() {
         const getHikes = await fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=50&key=${process.env.HPKEY}`);
+        console.log(getHikes.json())
         return getHikes;
     }
     const hikesValues = hikes();
-    console.log(hikesValues);
+    //console.log(hikesValues);
     // fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=50&key=${process.env.HPKEY}`
     // // , {
     // //     method: "POST",

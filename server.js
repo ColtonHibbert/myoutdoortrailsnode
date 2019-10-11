@@ -30,9 +30,9 @@ const database = {
     searchfield: 'blank',
 }
 
-const corsOptions = {
-  origin: 'https://myoutdoortrails.herokuapp.com'
-}
+// const corsOptions = {
+//   origin: 'https://myoutdoortrails.herokuapp.com'
+// }
 
 app.use(bodyparser.json());
 app.use(cors());

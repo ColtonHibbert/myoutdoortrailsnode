@@ -6,19 +6,20 @@ const handleHikingProject = (req, res ) => {
         return res.json(`unable to get hiking project api data`)
     }
     console.log(lat, lon)
-    async function hikes() {
-        const getHikes = await fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=50&key=${process.env.HPKEY}`, {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                },
-        })
-        .catch("fetch didn't work");
-        console.log(getHikes.json())
-        return getHikes;
-    }
-    const hikesValues = hikes();
+    // async function hikes() {
+    //     const getHikes = await fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=50&key=${process.env.HPKEY}`, {
+    //             method: "POST",
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'Access-Control-Allow-Origin': '*'
+    //             },
+    //     })
+    //     .catch("fetch didn't work");
+    //     console.log(getHikes.json())
+    //     return getHikes;
+    // }
+    // const hikesValues = hikes();
+    res.send(lat,lon)
     //console.log(hikesValues);
     // fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=50&key=${process.env.HPKEY}`
     // // , {

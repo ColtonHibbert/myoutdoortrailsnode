@@ -14,6 +14,7 @@ const hikingproject = require('./controllers/hikingproject.js');
 // user : process.env.DBUser,
 // password : process.env.DBPassword,
 
+
  const postgresDB = knex({
     client: 'pg',
     connection: {

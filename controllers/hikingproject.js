@@ -19,7 +19,7 @@ const handleHikingProject = (req, res ) => {
     //     return getHikes;
     // }
     // const hikesValues = hikes();
-    res.send(lat,lon)
+    res.json("works")
     //console.log(hikesValues);
     // fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=50&key=${process.env.HPKEY}`
     // // , {

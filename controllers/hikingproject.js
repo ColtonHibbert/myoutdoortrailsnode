@@ -22,13 +22,14 @@ const handleHikingProject = (req, res ) => {
     //res.json("works")
     //console.log(hikesValues);
     fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxDistance=50&key=${process.env.HPKEY}`
-    , {
-        method: "POST",
-        headers: {
-                  'Access-Control-Allow-Origin': '*'
-        }
-    }
+    // , {
+    //     method: "POST",
+    //     headers: {
+    //               'Access-Control-Allow-Origin': '*'
+    //     }
+    // }
     ).then(res => console.log(res))
+    console.log("after hiking project fetch")
     //.catch(err => res.status(400).json('hiking project request failed'))
     // try async, send res at end, put await value in the res, maybe res.send 
 

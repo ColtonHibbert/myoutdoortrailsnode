@@ -28,7 +28,9 @@ const handleHikingProject = (req, res ) => {
     //               'Access-Control-Allow-Origin': '*'
     //     }
     // }
-    ).then(res => console.log(res.json()))
+    ).then(res =>  {
+        console.log(JSON.parse(res.text()))
+    })
     console.log("after hiking project fetch")
     //.catch(err => res.status(400).json('hiking project request failed'))
     // try async, send res at end, put await value in the res, maybe res.send 

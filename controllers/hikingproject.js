@@ -28,7 +28,7 @@ const handleHikingProject = (req, res ) => {
     //               'Access-Control-Allow-Origin': '*'
     //     }
     // }
-    ).then(data => res.json(data))
+    ).then(data => res.send(data))
     //.then(data => JSON.stringify(data))
     console.log("after hiking project fetch")
     //.catch(err => res.status(400).json('hiking project request failed'))

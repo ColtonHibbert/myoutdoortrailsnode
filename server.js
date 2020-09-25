@@ -24,11 +24,6 @@ const hikingproject = require('./controllers/hikingproject.js');
 
 const searchfield = require('./controllers/searchfield.js');
 
-const database = {
-    searchfield: 'blank',
-}
-
-
 app.use(bodyparser.json());
 app.use(cors());
 

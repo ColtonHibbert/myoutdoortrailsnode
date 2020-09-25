@@ -1,4 +1,4 @@
-//const config = require('./config/config.js')
+
 const express = require('express');
 const app = express();
 const bodyparser = require('body-parser');
@@ -10,9 +10,6 @@ const fetch = require("node-fetch");
 const signup = require('./controllers/signup.js');
 const login = require('./controllers/login.js');
 const hikingproject = require('./controllers/hikingproject.js');
-
-// user : process.env.DBUser,
-// password : process.env.DBPassword,
 
 
  const postgresDB = knex({
@@ -31,9 +28,6 @@ const database = {
     searchfield: 'blank',
 }
 
-// const corsOptions = {
-//   origin: 'https://myoutdoortrails.herokuapp.com'
-// }
 
 app.use(bodyparser.json());
 app.use(cors());
@@ -57,11 +51,3 @@ app.get('/', (req,res) => res.send('this is working'))
 
 app.listen( process.env.PORT || 3001, () => console.log(`app is running on port ${process.env.PORT} or 3001`))
 
-
-// app.post('/signup', (req,res) => {
-//   postgresDB('users').insert({
-//     email: req.body.email,
-//     crypted_password: req.body.crypted_password
-//   }).then(() => res.json(`here is the response email ${req.body.email}`))
-//   console.log(`here is logging for email ${req.body.email}`)
-// })
